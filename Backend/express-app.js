@@ -6,7 +6,7 @@ const { connectToDB } = require('./db/db')
 module.exports = async(app) => {
 
     const corsOptions = {
-        origin: 'https://dabbewala.vercel.app/', // Allow only this origin
+        origin: '*', // Allow only this origin
         methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
         allowedHeaders: 'Content-Type,Authorization', // Allowed headers
         credentials: true, // Allow cookies and authentication headers
