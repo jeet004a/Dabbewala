@@ -5,8 +5,15 @@ const userRoutes = require('./routes/user.routes')
 const { connectToDB } = require('./db/db')
 module.exports = async(app) => {
 
+    const corsOptions = {
+        origin: 'https://dabbewala.vercel.app/', // Allow only this origin
+        methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
+        allowedHeaders: 'Content-Type,Authorization', // Allowed headers
+        credentials: true, // Allow cookies and authentication headers
+    }
+
     await connectToDB()
-    app.use(cors())
+    app.use(cors(corsOptions))
     app.use(bodyparser.urlencoded({ extended: true }))
     app.use(express.json())
 
